@@ -1,0 +1,27 @@
+body {
+    background-color: #b2bec3;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+   
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 20px;
+    padding: 10px 20px;
+}
+#start:hover {
+    cursor: pointer;;
+    color: green;
+}
+#stop:hover {
+    cursor: pointer;
+    color: red;
+}
+.stopwatch {
+    margin: 40px;
+}
