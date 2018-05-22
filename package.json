@@ -1,7 +1,6 @@
 {
   "name": "zadanie-15-7",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +11,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustynaK-13/zadanie-16-7.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JustynaK-13/zadanie-16-7/issues"
+  },
+  "homepage": "https://github.com/JustynaK-13/zadanie-16-7#readme",
+  "description": ""
 }
