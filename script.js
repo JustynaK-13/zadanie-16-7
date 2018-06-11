@@ -62,18 +62,18 @@ class Stopwatch extends React.Component {
 //document.querySelector('.stopwatch'));
 
 
-function pad0(value) {
-   let result = value.toString();
-    if (result.length < 2) {
-        result = '0' + result;
-    }
-    return result;
+  pad0(value) {
+     let result = value.toString();
+      if (result.length < 2) {
+          result = '0' + result;
+      }
+      return result;
+  }
 }
-
 /*let startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
 */
 
-ReactDOM.render(<Stopwatch/>, document.getElementById('app'));
+ReactDOM.render(stopwatch, document.getElementById('app'));
