@@ -3,7 +3,7 @@ class Stopwatch extends React.Component {
     	super(props);
     	this.state = { 
     		  running: false,
-          display = display;
+          display: display,
       },
     		  
       this.reset();
@@ -31,7 +31,7 @@ class Stopwatch extends React.Component {
       if (!this.state.running) {
           this.state.running = true; 
          
-          this.watch: setInterval(() => this.step(), 10);
+          this.watch = setInterval(() => this.step(), 10);
       }
   } 
 
@@ -58,9 +58,8 @@ class Stopwatch extends React.Component {
       clearInterval(this.watch);
     };
 
-
-const stopwatch = new Stopwatch(
-document.querySelector('.stopwatch'));
+//const stopwatch = new Stopwatch(
+//document.querySelector('.stopwatch'));
 
 
 function pad0(value) {
