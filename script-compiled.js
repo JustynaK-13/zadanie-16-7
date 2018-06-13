@@ -42,12 +42,13 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: "print",
     value: function print() {
-      this.state.display.innerText = this.format(this.times);
+      this.display.innerText = this.format(this.times);
     }
   }, {
     key: "format",
     value: function format() {
-      return pad0(minutes) + ":" + pad0(seconds) + ":" + pad0(Math.floor(miliseconds));
+      var times = this.state.times;
+      return pad0(times.minutes) + ":" + pad0(times.seconds) + ":" + pad0(Math.floor(times.miliseconds));
     }
   }, {
     key: "start",
@@ -66,9 +67,7 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: "step",
     value: function step() {
-      if (!this.state.running) {
-        return;
-      }
+      if (!this.state.running) return;
       this.calculate();
     }
   }, {
@@ -76,25 +75,20 @@ var Stopwatch = function (_React$Component) {
     value: function calculate() {
       var times = this.state.times;
       times.miliseconds += 1;
-      if (miliseconds >= 100) {
-        seconds += 1;
-        miliseconds = 0;
+      if (times.miliseconds >= 100) {
+        times.seconds += 1;
+        times.miliseconds = 0;
       }
-      if (seconds >= 60) {
-        minutes += 1;
-        seconds = 0;
+      if (times.seconds >= 60) {
+        times.minutes += 1;
+        times.seconds = 0;
       }
-      this.setState({
-        times: times
-      });
+      this.setState({ times: times });
     }
   }, {
     key: "stop",
     value: function stop() {
-      this.setState({
-        running: false
-      });
-      clearInterval(this.state.watch);
+      this.setState({ running: false }), clearInterval(this.state.watch);
     }
   }, {
     key: "render",
@@ -104,7 +98,7 @@ var Stopwatch = function (_React$Component) {
         { className: "stoper" },
         React.createElement(
           "nav",
-          { className: "buttons" },
+          { className: "controls" },
           React.createElement(
             "a",
             { href: "#", className: "button", id: "start", onClick: this.start },

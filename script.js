@@ -10,7 +10,7 @@ class Stopwatch extends React.Component {
       },
     }
   }
-  
+
   reset() {
     this.setState({
       running: false,
@@ -23,58 +23,55 @@ class Stopwatch extends React.Component {
   }
 
   print() {
-        this.state.display.innerText = this.format(this.times);
+        this.display.innerText = this.format(this.times);
   }
-
-
+  
   format() {
-    return `${pad0(minutes)}:${pad0(seconds)}:${pad0(Math.floor(miliseconds))}`;
+        let times = this.state.times;
+        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
   }
 
   start() {
     if (!this.state.running) {
       this.setState({
         running: true,
-        watch: setInterval(() => this.step(), 10)
-      })
+        watch: setInterval(() => this.step(), 10) 
+      });   
     }
   } 
 
-  step() {
-    if (!this.state.running) {
-      return;
-    }
+ 
+   step() {
+    if (!this.state.running) return;
     this.calculate();
   }
-
-
+  
   calculate() {
-    const times = this.state.times;
+    let times = this.state.times;
     times.miliseconds += 1;
-    if (miliseconds >= 100) {
-      seconds += 1;
-      miliseconds = 0;
+    if (times.miliseconds >= 100) {
+      times.seconds += 1;
+      times.miliseconds = 0;
     }
-    if (seconds >= 60) {
-      minutes += 1;
-      seconds = 0;
+    if (times.seconds >= 60) {
+      times.minutes += 1;
+      times.seconds = 0;
     }
-    this.setState({
-        times: times          
-    });
-  }
+    this.setState( { times });       
+  }      
+   
 
   stop() {
-    this.setState({
-      running: false
-    });
+    this.setState({ running: false }),
     clearInterval(this.state.watch);
   }
+
+ 
 
   render() {
     return ( 
       <div className="stoper">
-        <nav className="buttons">
+        <nav className="controls">
           <a href='#' className='button' id='start' onClick={this.start}>Start</a>
           <a href='#' className='button' id='stop' onClick={this.stop}>Stop</a>
         </nav>
