@@ -24,6 +24,11 @@ var Stopwatch = function (_React$Component) {
         miliseconds: 0
       }
     };
+    _this.reset = _this.reset.bind(_this);
+    _this.start = _this.start.bind(_this);
+    _this.step = _this.step.bind(_this);
+    _this.stop = _this.stop.bind(_this);
+
     return _this;
   }
 

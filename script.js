@@ -9,6 +9,11 @@ class Stopwatch extends React.Component {
           miliseconds: 0
       },
     }
+    this.reset = this.reset.bind(this);
+    this.start = this.start.bind(this);
+    this.step = this.step.bind(this);
+    this.stop = this.stop.bind(this);
+    
   }
 
   reset() {
